@@ -4,10 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  entry: './src/js/index.jsx',
+  entry: {
+    app: './src/js/index.jsx'
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'app.js'
+    filename: '[name].bundle.js',
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -15,7 +17,7 @@ module.exports = {
   module: {
     rules: [{
       test: /\.jsx?$/,
-      exclude: /node_modules/,
+      include: path.resolve(__dirname, 'src'),
       use: {
         loader: 'babel-loader'
       }
@@ -48,6 +50,10 @@ module.exports = {
       }, {
         loader: 'sass-loader' // compiles Sass to CSS
       }]
+    },{
+      test: /\.(png|jpg|gif|jpeg|ico|svg)$/,
+      exclude: /(node_modules)/,
+      loader: "url-loader"
     }]
   },
   plugins: [
