@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styles from './styles.scss';
 
 class App extends Component {
@@ -7,7 +7,7 @@ class App extends Component {
       <div className={`container ${styles.app}`}>
         Hello, React PDster!
       </div>
-    )
+    );
   }
 }
 
