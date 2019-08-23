@@ -14,6 +14,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
+  performance: {
+    hints: devMode ? false : "warning"
+  },
   module: {
     rules: [{
       test: /\.jsx?$/,
