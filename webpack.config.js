@@ -17,6 +17,9 @@ module.exports = {
   performance: {
     hints: devMode ? false : "warning"
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   module: {
     rules: [{
       test: /\.jsx?$/,
